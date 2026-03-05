@@ -1,0 +1,62 @@
+managed implementation in class zbp_r_cit_celeb unique;
+strict (2);
+
+define behavior for zr_cit_celeb alias Celebrity
+persistent table zcit_celeb
+lock master
+authorization master (global)
+{
+  create;
+  update;
+  delete;
+
+  association _Passion { create; }
+
+  field ( numbering : managed, readonly ) Id;
+  field ( readonly ) Createdby, Createdat, Lastchangedby, Lastchangedat, Locallastchangedat;
+
+  mapping for zcit_celeb
+  {
+    Id = id;
+    Name = name;
+    Gender = gender;
+    Dateofbirth = dateofbirth;
+    Profession = profession;
+    Industry = industry;
+    Debutmovie = debutmovie;
+    Famousmovie = famousmovie;
+    Networth = networth;
+    Currency = currency;
+    Salarypermovie = salarypermovie;
+    Awardscount = awardscount;
+    Nationality = nationality;
+    Createdby = createdby;
+    Createdat = createdat;
+    Lastchangedby = lastchangedby;
+    Lastchangedat = lastchangedat;
+    Locallastchangedat = locallastchangedat;
+  }
+}
+
+define behavior for zr_cit_passn alias Passion
+persistent table zcit_passn
+lock dependent by _Celebrity
+authorization dependent by _Celebrity
+{
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) PassionId;
+  field ( readonly ) CelebId;
+
+  association _Celebrity;
+
+  mapping for zcit_passn
+  {
+    PassionId = passion_id;
+    CelebId = celeb_id;
+    PassionName = passion_name;
+    Description = description;
+    Locallastchangedat = locallastchangedat;
+  }
+}

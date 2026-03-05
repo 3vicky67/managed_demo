@@ -1,0 +1,63 @@
+@Metadata.layer: #PARTNER
+@UI.headerInfo: {
+  typeName: 'Celebrity',
+  typeNamePlural: 'Celebrities',
+  title: { type: #STANDARD, label: 'Celebrity', value: 'Name' }
+}
+annotate entity zc_cit_celeb with
+{
+  @UI.facet: [
+    { id: 'Celebrity', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Celebrity Details', position: 10 },
+    { id: 'Passion', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Passions', position: 20, targetElement: '_Passion' }
+  ]
+
+  @UI.hidden: true
+  Id;
+
+  @UI: { lineItem: [{ position: 10, label: 'Name' }], identification: [{ position: 10, label: 'Name' }] }
+  Name;
+
+  @UI: { lineItem: [{ position: 20, label: 'Profession' }], identification: [{ position: 20, label: 'Profession' }] }
+  Profession;
+
+  @UI: { lineItem: [{ position: 30, label: 'Industry' }], identification: [{ position: 30, label: 'Industry' }] }
+  Industry;
+
+  @UI: { identification: [{ position: 40, label: 'Gender' }] }
+  Gender;
+
+  @UI: { identification: [{ position: 50, label: 'Date of Birth' }] }
+  Dateofbirth;
+
+  @UI: { identification: [{ position: 60, label: 'Awards Count' }] }
+  Awardscount;
+
+  @UI: { identification: [{ position: 70, label: 'Nationality' }] }
+  Nationality;
+
+  @UI: { identification: [{ position: 75, label: 'Famous Movie' }] }
+  Famousmovie;
+
+  @UI: { identification: [{ position: 80, label: 'Net Worth' }] }
+  Networth;
+
+  @UI: { identification: [{ position: 85, label: 'Currency' }] }
+  Currency;
+
+  @UI: { identification: [{ position: 90, label: 'Salary ' }] }
+  Salarypermovie;
+
+  @UI: { identification: [{ position: 100, label: 'Debut Movie' }] }
+  Debutmovie;
+
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  @UI.hidden: true
+  Locallastchangedat;
+}

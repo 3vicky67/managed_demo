@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Celebrities'
+define service ZSD_CIT_CELEB {
+  expose zc_cit_celeb as Celebrity;
+  expose zc_cit_passn as Passion;
+}

@@ -1,0 +1,19 @@
+projection implementation in class zbp_c_cit_celeb unique;
+strict (2);
+
+define behavior for zc_cit_celeb alias Celebrity
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Passion { create; }
+}
+
+define behavior for zc_cit_passn alias Passion
+{
+  use update;
+  use delete;
+
+  use association _Celebrity;
+}

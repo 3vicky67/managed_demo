@@ -1,0 +1,22 @@
+@Metadata.layer: #PARTNER
+@UI.headerInfo: {
+  typeName: 'Passion',
+  typeNamePlural: 'Passions',
+  title: { type: #STANDARD, value: 'PassionName' }
+}
+annotate entity zc_cit_passn with 
+{
+  @UI.facet: [ { id: 'Passion', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Passion Details', position: 10 } ]
+
+  @UI.hidden: true
+  PassionId;
+  
+  @UI.hidden: true
+  CelebId;
+
+  @UI: { lineItem: [{ position: 10, label: 'Passion' }], identification: [{ position: 10, label: 'Passion' }] }
+  PassionName;
+
+  @UI: { lineItem: [{ position: 20, label: 'Description' }], identification: [{ position: 20, label: 'Description' }] }
+  Description;
+}
